@@ -1,6 +1,7 @@
 using Demos.IAPDemo_1.Kernel.UI;
 using Kernel;
 using Kernel.Interfaces;
+using Kernel.UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 

@@ -6,10 +6,12 @@ using UnityEngine.Events;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
 
-namespace Demos.IAPDemo_1.Kernel.UI
+namespace Kernel.UI
 {
     public class IAPStoreUIElement : MonoBehaviour
     {
+        public string ProductID { get => productId; set => productId = value; }
+        
         [Serializable] public class OnPurchaseCompletedEvent : UnityEvent<Product> { };
         [Serializable] public class OnPurchaseFailedEvent : UnityEvent<Product, PurchaseFailureReason> { };
         
