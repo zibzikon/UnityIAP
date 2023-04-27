@@ -22,7 +22,7 @@ namespace Kernel
             _useFakeStore = useFakeStore;
         }
     
-        public async void BootIAPStore()
+        public async Task BootIAPStoreAsync()
         {
             var catalog = await LoadIAPProductCatalogAsync();
             InitializeUnityIAP(catalog);
