@@ -24,12 +24,12 @@ namespace Demos.IAPDemo_1.Kernel
 
             var processors = GetProcessors(adsRunner);
             
-            _iapStore.Initialize(processors);
             var iapConfigurationBuilderFactory = new IAPConfigurationBuilderFactory();
             
-            var storeLoader = new IAPStoreLoader(iapConfigurationBuilderFactory, _iapStore, true);
+            var storeLoader = new IAPStoreLoader(iapConfigurationBuilderFactory, _iapStore, useFakeStore: true);
             
             storeLoader.BootIAPStore();
+            _iapStore.Initialize(processors);
         }
 
         private IEnumerable<IIAPProductProcessor> GetProcessors(IAdsRunner adsRunner)
