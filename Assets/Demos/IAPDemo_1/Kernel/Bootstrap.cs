@@ -26,7 +26,7 @@ namespace Demos.IAPDemo_1.Kernel
             
             var iapConfigurationBuilderFactory = new IAPConfigurationBuilderFactory();
             
-            var storeLoader = new IAPStoreLoader(iapConfigurationBuilderFactory, _iapStore, useFakeStore: true);
+            var storeLoader = new IAPStoreLoader(iapConfigurationBuilderFactory, _iapStore, useFakeStore: false);
             await storeLoader.BootIAPStoreAsync();
             
             _iapStore.Initialize(processors);

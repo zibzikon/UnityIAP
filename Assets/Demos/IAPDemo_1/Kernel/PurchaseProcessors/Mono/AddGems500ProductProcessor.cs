@@ -5,7 +5,7 @@ using UnityEngine.Purchasing;
 
 namespace Demos.IAPDemo_1.Kernel.PurchaseProcessors.Mono
 {
-    public class AddGems500Processor : MonoIAPProductProcessor
+    public class AddGems500ProductProcessor : MonoIAPProductProcessor
     {
         [SerializeField] private GemsCountLabel gemsCountLabel;
         public override string ProductID => "add_gems_500";
