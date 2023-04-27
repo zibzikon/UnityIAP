@@ -431,6 +431,7 @@ MonoBehaviour:
   _iapStore: {fileID: 2066446301}
   monoIAPProductPurchaseProcessors:
   - {fileID: 374253419}
+  - {fileID: 661744918}
 --- !u!1 &336622496
 GameObject:
   m_ObjectHideFlags: 0

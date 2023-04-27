@@ -11,7 +11,7 @@ namespace Demos.IAPDemo_1.Kernel.Advertisement
 
         public void Disable()
         {
-            Debug.Log("Ads has been disable");
+            Debug.Log("Ads has been disabled");
         }
     }
 
