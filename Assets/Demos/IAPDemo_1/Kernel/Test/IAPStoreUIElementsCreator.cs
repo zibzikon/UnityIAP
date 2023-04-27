@@ -1,30 +1,28 @@
 using Demos.IAPDemo_1.Kernel.UI;
+using Kernel;
 using Kernel.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Demos.IAPDemo_1.Kernel.Test
 {
     public class IAPStoreUIElementsCreator : MonoBehaviour
     {
+        [FormerlySerializedAs("_iapStore")] [SerializeField] private IAPStore iapStore;
         [SerializeField] private IAPStoreUIElement iapStoreUIElement;
         [SerializeField] private SwipeMenu swipeMenu;
         [SerializeField] private int instancesCount = 5;
-        private IIAPStore _iapStore;
 
         private void Start()
         {
             for (int i = 0; i < instancesCount; i++)
             {
                 var instance = Instantiate(iapStoreUIElement);
-                instance.Initialize(_iapStore);
+                instance.Initialize(iapStore);
                 
                 swipeMenu.AddElement(instance.GetComponent<RectTransform>());
             }
         }
-
-        public void Initialize(IIAPStore iapStore)
-        {
-            _iapStore = iapStore;
-        }
+        
     }
 }
