@@ -19,9 +19,11 @@ namespace Kernel
         
         private IStoreController _controller;
         private IExtensionProvider _extensions;
+        private ILogger _logger;
 
-        public void Initialize(IEnumerable<IIAPProductProcessor> productPurchaseProcessors)
+        public void Initialize(IEnumerable<IIAPProductProcessor> productPurchaseProcessors, ILogger logger)
         {
+            _logger = logger;
             _purchaseProcessors = new Dictionary<string, List<IIAPProductProcessor>>(); 
             
             foreach (var processor in productPurchaseProcessors) AddProcessor(processor);
@@ -38,7 +40,7 @@ namespace Kernel
         public void OnInitializeFailed(InitializationFailureReason error) => OnInitializeFailed(error, "");
 
         public void OnInitializeFailed(InitializationFailureReason error, string message) 
-            => Debug.LogError($"Error initializing IAP because of {error}. {message}");
+            => _logger.LogError($"Error initializing IAP because of {error}. {message}");
 
         public void RestoreTransactions()
         {
@@ -63,15 +65,13 @@ namespace Kernel
             }
             else
             {
-                Debug.LogWarning(Application.platform + " is not a supported platform");
+                _logger.LogWarning(Application.platform + " is not a supported platform");
             }
         }
         
         public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
         {
             var product = purchaseEvent.purchasedProduct;
-            
-            Debug.Log("PurchaseProcesed");
             
             foreach (var processor in SelectProcessors(product))
             {
@@ -87,7 +87,7 @@ namespace Kernel
 
         public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
         {
-            Debug.LogError($"Failed to purchase {product.definition.id} because {failureReason}");
+            _logger.LogError($"Failed to purchase {product.definition.id} because {failureReason}");
             
             foreach (var processor in SelectProcessors(product))
                 processor.OnPurchaseFailed(product, failureReason);

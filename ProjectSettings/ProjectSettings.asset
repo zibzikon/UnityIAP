@@ -753,7 +753,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Collab: 0
-    Purchasing: 1
+    Purchasing: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -773,10 +773,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 885e6bb5-e6c8-41fb-9f57-65679fa001ff
+  cloudProjectId: 5c15be33-c0c4-4c6b-8f26-6b5fe53e4bbe
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SwipeMenu
+  projectName: SimpleCloudSave
   organizationId: thezibzikon
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
