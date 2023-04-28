@@ -475,11 +475,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iapStore: {fileID: 2066446301}
-  iapStoreUIElementsCreator: {fileID: 336622498}
-  iapStoreUIElementsInitializer: {fileID: 278911203}
+  engine: {fileID: 624194626}
+  gameSaver: {fileID: 1916091482}
   monoIAPProductPurchaseProcessors:
   - {fileID: 374253419}
   - {fileID: 661744918}
+  monoSaveDataProcessors: []
   player: {fileID: 1335320633}
 --- !u!1 &336622496
 GameObject:
@@ -641,6 +642,8 @@ Transform:
   - {fileID: 336622497}
   - {fileID: 278911202}
   - {fileID: 1335320632}
+  - {fileID: 624194625}
+  - {fileID: 1916091481}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -930,6 +933,52 @@ Transform:
   m_Father: {fileID: 477920483}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &624194624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624194625}
+  - component: {fileID: 624194626}
+  m_Layer: 0
+  m_Name: Engine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &624194625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624194624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 477920483}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &624194626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624194624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b19138dabb4ec181cdee50681afdbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iapStoreUIElementsCreator: {fileID: 336622498}
+  iapStoreUIElementsInitializer: {fileID: 278911203}
 --- !u!1 &661744916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1a45583a904c2d9f10f13d59565b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Gems>k__BackingField: 0
+  gems: 0
 --- !u!1 &1790094616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1572,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 354.9914, y: 100}
   m_Pivot: {x: 1, y: 1}
+--- !u!1 &1916091480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1916091481}
+  - component: {fileID: 1916091482}
+  m_Layer: 0
+  m_Name: GameSaver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1916091481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916091480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 477920483}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1916091482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916091480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d19303a7c24201bc93aefa667706d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1335320633}
 --- !u!1 &1939850475
 GameObject:
   m_ObjectHideFlags: 0

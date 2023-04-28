@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Kernel.Interfaces;
 using UnityEngine;
 
 namespace Kernel.UI
@@ -8,7 +9,7 @@ namespace Kernel.UI
     {
         [SerializeField] private List<IAPStoreUIElement> iapStoreUIElements;
 
-        public void Initialize(IAPStore iapStore)
+        public void Initialize(IIAPStore iapStore)
         {
             foreach (var element in iapStoreUIElements)
                 element.Initialize(iapStore);

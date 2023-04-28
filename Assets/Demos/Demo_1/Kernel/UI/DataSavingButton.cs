@@ -7,21 +7,21 @@ namespace Demos.Demo_1.Kernel.UI
     public class DataSavingButton : MonoBehaviour
     {
         [SerializeField] private Button _button;  
-        private IGameDataSaver _gameDataSaver;
+        private IGameDataSaveLoadService _gameDataSaveLoadService;
 
         private void Awake()
         {
             _button.onClick.AddListener(SaveData);
         }
 
-        public void Initialize(IGameDataSaver gameDataSaver)
+        public void Initialize(IGameDataSaveLoadService gameDataSaveLoadService)
         {
-            _gameDataSaver = gameDataSaver;
+            _gameDataSaveLoadService = gameDataSaveLoadService;
         }
         
         private async void SaveData()
         {
-            await _gameDataSaver.SaveAsync();
+            await _gameDataSaveLoadService.SaveAsync();
         }
     }
 }

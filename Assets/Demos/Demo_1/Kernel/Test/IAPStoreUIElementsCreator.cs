@@ -1,5 +1,6 @@
 using Demos.Demo_1.Kernel.UI;
 using Kernel;
+using Kernel.Interfaces;
 using Kernel.UI;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Demos.Demo_1.Kernel.Test
         [SerializeField] private SwipeMenu swipeMenu;
         [SerializeField] private int instancesCount = 5;
 
-        public void Initialize(IAPStore iapStore)
+        public void Initialize(IIAPStore iapStore)
         {
             for (int i = 0; i < instancesCount; i++)
             {

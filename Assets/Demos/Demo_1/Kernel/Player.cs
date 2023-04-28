@@ -6,20 +6,27 @@ namespace Demos.Demo_1.Kernel
 {
     public class Player : MonoBehaviour
     {
-        [field: SerializeField ] public int Gems { get; private set; }
-        
-        public async void Initialize()
+        public int Gems
         {
-            var data = await UnityCloudSaveClient.Instance.LoadAsync<PlayerData>("player_data");
+            get => gems;
             
-            if(data !=  null)
-                Gems = data.GemsCount;
+            private set
+            {
+                gems = value;
+                Changed?.Invoke();
+            }
         }
+
+        public event Action Changed;
+
+        [SerializeField ] private int gems;
         
+        public async void Initialize(int gemsCount) => Gems = gemsCount;
+
         public async void AddGems(int count)
         {
+            Changed?.Invoke();
             Gems += count;
-            await UnityCloudSaveClient.Instance.SaveAsync("player_data" ,new PlayerData(){GemsCount =  Gems});
         }
     }
 }
